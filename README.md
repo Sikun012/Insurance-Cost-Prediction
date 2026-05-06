@@ -98,5 +98,5 @@ Python, Flask, NumPy, Pandas, Scikit-learn
 
 ## 👤 Author
 
-Priyatam Dash
+Sikun Kumar Rout
 >>>>>>> 55b86d7 (Initial commit)
