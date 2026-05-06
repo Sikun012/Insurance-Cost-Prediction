@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insurance Premium Predictor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>💰 Insurance Premium Predictor</h1>
+            <p>Estimate your insurance premium based on your profile</p>
+        </div>
+
+        <form id="predictionForm" class="form-container">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="age">Age (years)</label>
+                    <input type="number" id="age" name="age" min="18" max="100" required>
+                </div>
+                <div class="form-group">
+                    <label for="sex">Sex</label>
+                    <select id="sex" name="sex" required>
+                        <option value="">Select...</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="bmi">BMI</label>
+                    <input type="number" id="bmi" name="bmi" min="10" max="60" step="0.1" required>
+                    <small>Height(m)² / Weight(kg)</small>
+                </div>
+                <div class="form-group">
+                    <label for="children">Number of Children</label>
+                    <input type="number" id="children" name="children" min="0" max="5" required>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="smoker">Smoker</label>
+                    <select id="smoker" name="smoker" required>
+                        <option value="">Select...</option>
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="region">Region</label>
+                    <select id="region" name="region" required>
+                        <option value="">Select...</option>
+                        <option value="northeast">Northeast</option>
+                        <option value="northwest">Northwest</option>
+                        <option value="southeast">Southeast</option>
+                        <option value="southwest">Southwest</option>
+                    </select>
+                </div>
+            </div>
+
+            <button type="submit" class="btn-submit">Predict Premium</button>
+        </form>
+
+        <div id="result" class="result-container hidden">
+            <h2>Your Estimated Premium</h2>
+            <div class="premium-box">
+                <span class="currency">₹</span>
+                <span id="premiumValue" class="premium-value">0</span>
+                <span class="period">/year</span>
+            </div>
+            <button type="button" class="btn-reset" onclick="resetForm()">Calculate Again</button>
+        </div>
+
+        <div id="error" class="error-container hidden"></div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
